@@ -2,6 +2,8 @@ package modelo;
 
 import java.sql.SQLException;
 
+import com.google.gson.Gson;
+
 import dao.DaoUsuarios;
 
 public class Usuario {
@@ -93,6 +95,41 @@ public class Usuario {
 		DaoUsuarios.getInstance().insertarUsuario(this);
 		
 	}
+	
+	/**
+	 * Método para modificar los datos de usuario.
+	 * @param id_usuario
+	 * @throws SQLException
+	 */
+	public void modificarUsuario (int id_usuario) throws SQLException {
+		
+		DaoUsuarios.getInstance().obtenerUsuario(id_usuario);
+		
+		this.setId_usuario(id_usuario);
+		this.setNombre(nombre);
+		this.setApellidos(apellidos);
+		this.setDomicilio(domicilio);
+		this.setCod_postal(id_usuario);
+		this.setPais(pais);
+		this.setEmail(email);
+		this.setTelefono(id_usuario);
+		
+	}
+	
+	public String devuelveJson() {
+		
+		String txtJson = "";
+		
+		Gson gson = new Gson();
+		
+		txtJson = gson.toJson(this);
+		
+		return txtJson;
+	}
+	
+	
+	
+	//GETTERS Y SETTERS
 	
 	/**
 	 * Método de inclusión del id_usuario en el objeto.
