@@ -64,8 +64,7 @@ public class Sv_GestionUsuarios extends HttpServlet {
 			System.out.println("Error al insertar.");
 		}
 		
-		
-		
+		response.sendRedirect("index.html");
 		
 		/*
 			//Esto sirve para que nos salgan los datos insertados por el usuario en el explorador

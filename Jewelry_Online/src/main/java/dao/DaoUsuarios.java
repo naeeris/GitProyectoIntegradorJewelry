@@ -111,8 +111,27 @@ public class DaoUsuarios {
 		return txtJSON;
 		
 	}
+	/**
+	 * 
+	 * @param id_usuario
+	 * @return
+	 * @throws SQLException
+	 */
+	public Usuario obtenerUsuario(int id_usuario) throws SQLException {
+		
+		String sql = ("SELECT*FROM usuarios WHERE id=?");
+		
+		PreparedStatement ps = DBconexion.prepareStatement(sql);
+		ps.setInt(1, id_usuario);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		rs.next();
+		
+		Usuario u = new Usuario(rs.getInt("id_usuario"), rs.getInt("permiso_usuario"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("domicilio"), rs.getInt("cod_postal"), rs.getString("pais"), rs.getString("email"), rs.getInt("telefono"), rs.getString("contrasenya"));
 	
-	
+		return u;
+	}
 	
 
 }

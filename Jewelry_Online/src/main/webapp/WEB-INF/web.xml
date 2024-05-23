@@ -39,4 +39,14 @@
     <servlet-name>Sv_GestionUsuariosconFoto</servlet-name>
     <url-pattern>/Sv_GestionUsuariosconFoto</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Sv_ModificarUsuarios</display-name>
+    <servlet-name>Sv_ModificarUsuarios</servlet-name>
+    <servlet-class>controlador.Sv_ModificarUsuarios</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sv_ModificarUsuarios</servlet-name>
+    <url-pattern>/Sv_ModificarUsuarios</url-pattern>
+  </servlet-mapping>
 </web-app>

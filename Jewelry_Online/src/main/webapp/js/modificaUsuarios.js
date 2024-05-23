@@ -1,6 +1,9 @@
 /**
  * 
  */
+/**
+ * 
+ */
 //HAGO LA LLAMADA DESDE JAVASCRIPT
    
 	/* COMENTO ESTO PARA AÑADIR LA ABREVIATURA
@@ -55,6 +58,8 @@
             html += "<td>"+resultados[i].pais+"</td>";
             html += "<td>"+resultados[i].email+"</td>";
             html += "<td>"+resultados[i].telefono+"</td>";
+            html += "<td><a href='Sv_ModificarUsuarios?id="+resultados[i].id_usuario+"'>Editar</td>"
+        
             html += "</tr>";
         }
 
