@@ -103,16 +103,18 @@ public class Usuario {
 	 */
 	public void modificarUsuario (int id_usuario) throws SQLException {
 		
-		DaoUsuarios.getInstance().obtenerUsuario(id_usuario);
+		Usuario aux = DaoUsuarios.getInstance().obtenerUsuario(id_usuario);
 		
-		this.setId_usuario(id_usuario);
-		this.setNombre(nombre);
-		this.setApellidos(apellidos);
-		this.setDomicilio(domicilio);
-		this.setCod_postal(id_usuario);
-		this.setPais(pais);
-		this.setEmail(email);
-		this.setTelefono(id_usuario);
+		this.setId_usuario(aux.getId_usuario());
+		this.setPermiso_usuario(aux.getPermiso_usuario());
+		this.setNombre(aux.getNombre());
+		this.setApellidos(aux.getApellidos());
+		this.setDomicilio(aux.getDomicilio());
+		this.setCod_postal(aux.getCod_postal());
+		this.setPais(aux.getPais());
+		this.setEmail(aux.getEmail());
+		this.setTelefono(aux.getTelefono());
+		this.setContrasenya(aux.getContrasenya());
 		
 	}
 	

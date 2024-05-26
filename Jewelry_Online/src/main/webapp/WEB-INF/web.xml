@@ -49,4 +49,24 @@
     <servlet-name>Sv_ModificarUsuarios</servlet-name>
     <url-pattern>/Sv_ModificarUsuarios</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Sv_AltaUsuarios</display-name>
+    <servlet-name>Sv_AltaUsuarios</servlet-name>
+    <servlet-class>controlador.Sv_AltaUsuarios</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sv_AltaUsuarios</servlet-name>
+    <url-pattern>/Sv_AltaUsuarios</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SV_ModificarUsuarios</display-name>
+    <servlet-name>SV_ModificarUsuarios</servlet-name>
+    <servlet-class>controlador.SV_ModificarUsuarios</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SV_ModificarUsuarios</servlet-name>
+    <url-pattern>/SV_ModificarUsuarios</url-pattern>
+  </servlet-mapping>
 </web-app>

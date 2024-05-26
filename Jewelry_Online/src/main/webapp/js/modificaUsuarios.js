@@ -36,7 +36,8 @@
 
         }
 	*/  
-	
+
+		
 	function llamada(){
 		fetch('Sv_ListarUsuarios')
 		.then(response => response.json())
@@ -68,6 +69,36 @@
         document.getElementById("listado_usuarios").innerHTML = html;
 
     }
+     //Hacerlo con el addevent listener
+    function validarFormulario(){
+			   
+		    let nombre = document.getElementById('nombre').value;
+			let email = document.getElementById('mail').value;
+   		    let tel = document.getElementById('tel').value;
+
+			let ok = true;
+			if(nombre == ""){
+				ok = false;
+				document.getElementById('nombre').style.background = "red";
+			}
+			
+			if(email == ""){
+				ok = false;
+				document.getElementById('mail').style.background = "red";
+			}
+			
+			if(tel == ""){
+				ok = false;
+				document.getElementById('tel').style.background = "red";
+			}
+			
+			if(ok == true){
+				
+				document.getElementById("altas").submit();
+				
+			}
+				   
+		}
 
     //Gestor de eventos. Cuando el objeto window se ejecute, cuando haya leído todo, quiero que me ejecutes la siguiente función anónima
     //Quiero que cuando mi ventana (window) se cargue (onload), me ejecutes 'function'
@@ -76,3 +107,5 @@
         llamada();
 
     }
+    
+  

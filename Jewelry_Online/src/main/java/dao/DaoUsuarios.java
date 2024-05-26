@@ -43,7 +43,7 @@ public class DaoUsuarios {
 	 */
 	public void insertarUsuario(Usuario registro_usuario) throws SQLException {
 		
-		String sql = "INSERT INTO usuarios (nombre, apellidos, domicilio, cod_postal, pais, email, telefono, contrasenya) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO usuarios (permiso_usuario, nombre, apellidos, domicilio, cod_postal, pais, email, telefono, contrasenya) VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		PreparedStatement ps = DBconexion.prepareStatement(sql);
 		
@@ -119,13 +119,12 @@ public class DaoUsuarios {
 	 */
 	public Usuario obtenerUsuario(int id_usuario) throws SQLException {
 		
-		String sql = ("SELECT*FROM usuarios WHERE id=?");
+		String sql = ("SELECT * FROM usuarios WHERE id=?");
 		
 		PreparedStatement ps = DBconexion.prepareStatement(sql);
 		ps.setInt(1, id_usuario);
 		
 		ResultSet rs = ps.executeQuery();
-		
 		rs.next();
 		
 		Usuario u = new Usuario(rs.getInt("id_usuario"), rs.getInt("permiso_usuario"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("domicilio"), rs.getInt("cod_postal"), rs.getString("pais"), rs.getString("email"), rs.getInt("telefono"), rs.getString("contrasenya"));
