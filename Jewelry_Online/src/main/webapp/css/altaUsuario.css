@@ -1,0 +1,205 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    
+    background-color: rgb(221, 200, 172);
+    padding: 10px 20px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading h2 {
+    margin: 0%;
+    color: #333;
+}
+
+.heading .iconos {
+    display: flex;
+    align-items: center;
+}
+
+.heading .iconos a {
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.heading .iconos a .icono-img {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+#barra-buscar {
+    background-color: rgba(221, 200, 172, 0.541);
+    padding: 10px;
+    border-top: 1px solid #e7e7e7;
+}
+
+#barra-buscar input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.hidden {
+    display: none;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0%;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+section {
+    flex: 1;
+    padding: 20px;
+    background-color: rgba(221, 200, 172, 0.541);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.cajaFormulario {
+    flex: 1%;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cajaFormulario h2 {
+	margin-top: 100px;
+	text-align: center;
+	font-family: sans-serif;
+	color: #333;
+}
+
+.cajaFormulario h4 {
+	text-align: center;
+	margin-top: 20px;
+	padding: 5px;
+	font-family: sans-serif;
+	color: #333;
+}
+
+
+.cajaFormulario form ul {
+	list-style: none;
+	padding: 5px;
+	text-align: center;
+}
+
+.cajaFormulario form ul li {
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.cajaFormulario form ul li label {
+	text-align: justify;
+}
+
+.cajaFormulario form ul li input {
+	width: auto;
+}
+
+.cajaFormulario form ul li input[type="submit"] {
+	width: 40%;
+    padding: 10px;
+    background-color: #333;
+    color: rgb(235, 220, 200);
+    border: none;
+    cursor: pointer;
+}
+
+.cajaInformacion {
+	flex: 1%;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen-container {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+.imagen-container img {
+    
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+
+#footer {
+    background-color: rgb(221, 200, 172);
+    padding: 10px 0;
+    border-top: 1px solid #e7e7e7;
+}
+
+#footer footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+#footer ul li {
+    margin: 0 10px;
+}
+
+#footer ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
