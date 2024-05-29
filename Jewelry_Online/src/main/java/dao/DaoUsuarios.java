@@ -117,7 +117,7 @@ public class DaoUsuarios {
 	 */
 	public Usuario obtenerUsuarioPorId(int id_usuario) throws SQLException {
 		
-		String sql = ("SELECT * FROM usuarios WHERE id_usuario=?");
+		String sql = "SELECT * FROM usuarios WHERE id_usuario=?";
 		
 		PreparedStatement ps = DBconexion.prepareStatement(sql);
 		ps.setInt(1, id_usuario);
@@ -157,6 +157,11 @@ public class DaoUsuarios {
 		
 	}
 	
+	/**
+	 * Método para eliminar un usuario de la base de datos teniendo en cuenta el id_usuario.
+	 * @param id_usuario 
+	 * @throws SQLException
+	 */
 	public void eliminarUsuario(int id_usuario) throws SQLException {
 		
 		String sql = "DELETE FROM usuarios WHERE id_usuario=?";
@@ -167,6 +172,31 @@ public class DaoUsuarios {
 		int filas = ps.executeUpdate();
 		ps.close();
 		
+	}
+	
+	/**
+	 * 
+	 * @param u
+	 * @param contrasenya
+	 * @return
+	 * @throws SQLException 
+	 */
+	public Usuario logeandoUsuario(Usuario u, String contrasenya) throws SQLException {
+		
+		String sql = "SELECT * FROM usuarios WHERE email=? AND contrasenya=?";
+		
+		PreparedStatement ps = DBconexion.prepareStatement(sql);
+		ps.setString(1, u.getEmail());
+		ps.setString(2, contrasenya);
+		
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		
+		Usuario aux = new Usuario(rs.getInt("id_usuario"), rs.getInt("permiso_usuario"), rs.getString("nombre"), rs.getString("apellidos"), rs.getString("domicilio"), rs.getInt("cod_postal"), rs.getString("pais"), rs.getString("email"), rs.getInt("telefono"), rs.getString("contrasenya"));
+	
+		return aux;
 		
 	}
+	
+	
 }

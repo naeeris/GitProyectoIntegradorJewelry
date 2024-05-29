@@ -89,4 +89,24 @@
     <servlet-name>Sv_EliminarUsuario</servlet-name>
     <url-pattern>/Sv_EliminarUsuario</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Sv_GestionSesion</display-name>
+    <servlet-name>Sv_GestionSesion</servlet-name>
+    <servlet-class>controlador.Sv_GestionSesion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sv_GestionSesion</servlet-name>
+    <url-pattern>/Sv_GestionSesion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Sv_Login</display-name>
+    <servlet-name>Sv_Login</servlet-name>
+    <servlet-class>controlador.Sv_Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sv_Login</servlet-name>
+    <url-pattern>/Sv_Login</url-pattern>
+  </servlet-mapping>
 </web-app>
