@@ -11,15 +11,15 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /**
- * Servlet implementation class Sv_GestionUsuariosconFoto
+ * Servlet implementation class Sv_AltaUsuarios
  */
-public class Sv_GestionUsuariosconFoto extends HttpServlet {
+public class Sv_AltaUsuarios extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sv_GestionUsuariosconFoto() {
+    public Sv_AltaUsuarios() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +29,7 @@ public class Sv_GestionUsuariosconFoto extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
@@ -63,17 +63,14 @@ public class Sv_GestionUsuariosconFoto extends HttpServlet {
 			System.out.println("Error al insertar.");
 		}
 		
+		response.sendRedirect("index.html");
 		
+		/*
+			//Esto sirve para que nos salgan los datos insertados por el usuario en el explorador
+			PrintWriter respuesta = response.getWriter();
+			respuesta.print(registro_usuario.toString());
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		*/
 		
 		
 		

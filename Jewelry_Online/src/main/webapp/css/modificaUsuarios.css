@@ -89,54 +89,37 @@ nav ul li a {
     font-size: 18px;
 }
 
-main {
+section {
     flex: 1;
     padding: 20px;
     background-color: rgba(221, 200, 172, 0.541);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.links-imagen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
     
 }
 
-.imagen-container {
-    position: relative;
-    width: 400px;
-    height: auto;
-}
-
-.imagen-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.imagen-container .overlay {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(235, 220, 200);
-    font-size: 20px;
-    font-weight: lighter;
-    text-shadow: 1px 1px 2px #333;;
-    pointer-events: none;
-    font-family: sans-serif;
+.listado {
+    flex: 1%;
+    max-width: 50%;
     
 }
 
-.imagen-container img:hover {
-    transform: scale(1.1);
+.listado h2 {
+	padding: 5px;
+	font-family: sans-serif;
+	color: #333;
 }
+
+table {
+	border-radius: 15px;
+	border-color:  #e7e7e7;
+	width: auto;
+	height: 250px;
+	
+}
+
+table td {
+	border-color:  #e7e7e7;
+}
+
 
 
 #footer {

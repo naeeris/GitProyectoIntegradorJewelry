@@ -89,53 +89,88 @@ nav ul li a {
     font-size: 18px;
 }
 
-main {
+section {
     flex: 1;
     padding: 20px;
     background-color: rgba(221, 200, 172, 0.541);
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    gap: 20px;
 }
 
-.links-imagen {
+.cajaFormulario {
+    flex: 1%;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cajaFormulario h2 {
+	margin-top: 100px;
+	text-align: center;
+	font-family: sans-serif;
+	color: #333;
+}
+
+.cajaFormulario h4 {
+	text-align: center;
+	margin-top: 20px;
+	padding: 5px;
+	font-family: sans-serif;
+	color: #333;
+}
+
+
+.cajaFormulario form ul {
+	list-style: none;
+	padding: 5px;
+	text-align: center;
+}
+
+.cajaFormulario form ul li {
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.cajaFormulario form ul li label {
+	text-align: justify;
+}
+
+.cajaFormulario form ul li input {
+	width: auto;
+}
+
+.cajaFormulario form ul li input[type="submit"] {
+	width: 40%;
+    padding: 10px;
+    background-color: #333;
+    color: rgb(235, 220, 200);
+    border: none;
+    cursor: pointer;
+}
+
+.cajaInformacion {
+	flex: 1%;
+    max-width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    
 }
 
 .imagen-container {
-    position: relative;
-    width: 400px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
     height: auto;
 }
 
 .imagen-container img {
+    
     width: 100%;
     height: auto;
-    border-radius: 8px;
-}
-
-.imagen-container .overlay {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(235, 220, 200);
-    font-size: 20px;
-    font-weight: lighter;
-    text-shadow: 1px 1px 2px #333;;
-    pointer-events: none;
-    font-family: sans-serif;
-    
-}
-
-.imagen-container img:hover {
-    transform: scale(1.1);
+    border-radius: 15px;
 }
 
 

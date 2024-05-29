@@ -33,22 +33,6 @@ public class Sv_ListarUsuarios extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*
-		//ESTO LO DEJAMOS COMENTADO PORQUE ES LO QUE HACE QUE NOS SAQUE EL LISTAR DESDE LA BD A ECLIPSE
-		try {
-			ArrayList<Usuario> listaEnObjetos = DaoUsuarios.getInstance().listarUsuarios();
-			
-			for(Usuario u : listaEnObjetos) {
-				
-				System.out.println(u.toString());	
-			}
-	
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("Error al listar");
-		}
-		*/
 		
 		
 		String respuestaJson;

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Listado de usuarios a modificar</title>
+
+	<link rel="stylesheet" href="css/modificaUsuarios.css">
+ 	<script src="js/editarUsuario.js"></script>
+    
+</head>
+
+<body>
+
+	<div>
+		
+		<!--Estoy trabajando aquí--> 
+	   <!-- Formulario para modificar el usuario-->
+	   <section>
+	       <h1>Modificar usuario</h1>
+	       <h4>Modifica los campos que desees actualizar</h4>
+	       <form id="EditarUsuario" name="ModificarUsuario" action="Sv_ModificarUsuario" method="post">
+	            <ul type="none">
+					<input type="hidden" id="id_usuario" name="id_usuario"> <!--Esto es para poder modificar teniendo en cuenta el Id pero lo pongo oculto para que no aparezca-->
+	                <li><label>Permiso: </label><input id="permiso_usuario" type="number" name="permiso_usuario"></li>
+	                <li><label>Nombre: </label><input id="nombre" type="text" name="nombre"></li>
+	                <li><label>Apellidos: </label><input id="apellidos" type="text" name="apellidos"></li>
+	                <li><label>Domicilio: </label><input id="domicilio" type="text" name="domicilio"></li>
+	                <li><label>Código postal: </label><input id="cod_postal" type="number" name="cod_postal" maxlength="5"></li>
+	                <li><label>País: </label><input id="pais" type="text" name="pais"></li>
+	       	
+	       			<h3>Datos de contacto:</h3> 
+	                <li><label>E-mail: </label><input id="email" type="email" name="email"></li>
+	                <li><label>Teléfono: </label><input id="telefono" type="number" name="telefono" maxlength="9"></li>
+	
+	                <li><label>Contraseña: </label><input id="contrasenya" type="text" name="contrasenya"></li>
+	
+	                <!--PENDIENTE - Todos los datos de un formulario deben de ser validados con JS antes de ser enviados - HECHO - PTE REVISAR-->
+	                <li><input type="submit" value="Modificar"></li> <!--Pasa el onclick a Js con el addeventlistener - HECHO / No se mete el submit porque hace de intermediario, el submit lo hace Js-->
+	                
+	
+	            </ul>
+	
+	       </form>
+	
+	
+	   </section>
+		
+		
+		<footer>
+			
+			<ul>
+            	<li><a href="index.html">Inicio</a> </li>
+          	  	<li><a href="#">Productos</a> </li>
+            	<li><a href="#">Blog</a> </li>
+            	<li><a href="#">Contacto</a> </li>
+            	<li><a href="#">Aviso Legal</a> </li>
+            	<li><a href="#">Cookies</a> </li>
+        	</ul>
+			
+		</footer>
+		
+		
+	</div>
+  
+
+
+    
+    
+
+</body>
+
+</html>

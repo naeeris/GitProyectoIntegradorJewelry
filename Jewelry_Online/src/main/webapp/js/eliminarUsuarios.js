@@ -1,7 +1,6 @@
 /**
  * 
  */
-	
 	function llamada(){
 		fetch('Sv_ListarUsuarios')
 		.then(response => response.json())
@@ -23,7 +22,7 @@
 		
 		console.log(resultados); //Para comprobar si me saca los datos (DE MOMENTO NO ME LOS SACA)
 		//Esto lo tengo que modificar y meter en el html para poder darle estilo desde el css
-        let html = "<table >";
+        let html = "<table border=1>";
 
         for(let i=0; i<resultados.length; i++){
 
@@ -56,4 +55,3 @@
 	   
 	   
    })
-  
