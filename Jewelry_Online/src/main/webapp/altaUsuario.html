@@ -48,15 +48,14 @@
 		       	<h4>Regístrate y haz tu pedido</h4>
 		       	<form name="AltaUsuario" action="Sv_AltaUsuarios" method="post">
 		            <ul type="none">
-		                <li><label>Nombre </label><input id="nombre" type="text" name="nombre"></li>
-		                <li><label>Apellidos </label><input id="apellidos" type="text" name="apellidos"></li>
-		                <li><label>Domicilio </label><input id="domicilio" type="text" name="domicilio"></li>
-		                <li><label>Código postal </label><input id="cod_postal" type="number" name="cod_postal" maxlength="5"></li>
-		                <li><label>País </label><input id="pais" type="text" name="pais"></li>
-		                <li><label>Email </label><input id="email" type="email" name="email"></li>
-		                <li><label>Teléfono </label><input id="telefono" type="number" name="telefono" maxlength="9"></li>
-		
-		                <li><label>Contraseña </label><input id="contrasenya" type="text" name="contrasenya"></li>
+		                <li><label>Nombre </label><input id="nombre" type="text" name="nombre" required></li>
+		                <li><label>Apellidos </label><input id="apellidos" type="text" name="apellidos" required></li>
+		                <li><label>Domicilio </label><input id="domicilio" type="text" name="domicilio" required></li>
+		                <li><label>Código postal </label><input id="cod_postal" type="number" name="cod_postal" maxlength="5" required></li>
+		                <li><label>País </label><input id="pais" type="text" name="pais" required></li>
+		                <li><label>Email </label><input id="email" type="email" name="email" required></li>
+		                <li><label>Teléfono </label><input id="telefono" type="number" name="telefono" maxlength="9" required></li>
+		                <li><label>Contraseña </label><input id="contrasenya" type="password" name="contrasenya" required></li>
 		
 		                <!--PENDIENTE - Todos los datos de un formulario deben de ser validados con JS antes de ser enviados-->
 		                <li><input type="submit" value="Crea tu cuenta"></li>

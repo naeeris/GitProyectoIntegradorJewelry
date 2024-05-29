@@ -6,25 +6,20 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import modelo.Usuario;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-
-import dao.DaoUsuarios;
 
 /**
- * Servlet implementation class Sv_EliminarUsuario
+ * Servlet implementation class Sv_GestionSesion
  */
-public class Sv_EliminarUsuario extends HttpServlet {
+public class Sv_GestionSesion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	HttpSession sesion;  
+    HttpSession sesion; 
 	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sv_EliminarUsuario() {
+    public Sv_GestionSesion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,38 +30,16 @@ public class Sv_EliminarUsuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		sesion = request.getSession();
+		sesion = request.getSession(); //Con esto abro la puerta a la sesion
 		
-		int idSesion = (int) request.getAttribute("id_usuario");
+		String nombre = "Noelia"; //Esto puede venir de un request get parameter de un formulario
 		
-		if (idSesion != 0) {
+		sesion.setAttribute("nombre", nombre); //Aquí puedo añadir todos los atributtes que necesite, así se guardan en la sesion abierta esos datos
 		
-			PrintWriter out = response.getWriter();
-			
-			int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
-			System.out.println(id_usuario);
-			
-			Usuario u = new Usuario();
-			
-			try {
-				u.eliminarUsuario(id_usuario);
-				
-				out.print(u.devuelveJson());
-				System.out.println("Estoy borrando "+id_usuario);		
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			response.sendRedirect("listaUsuarios.html");
+		String respuesta = (String) sesion.getAttribute("nombre");
 		
-		}else {
-			
-			System.out.println("No puedes acceder.");
-			response.sendRedirect("login.html");
-			
-		}
+		System.out.println(respuesta);
+		
 		
 	}
 
@@ -76,8 +49,10 @@ public class Sv_EliminarUsuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		
+		
+		
+		
 	}
-	
-	
 
 }

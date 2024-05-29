@@ -4,6 +4,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import modelo.Usuario;
 
 import java.io.IOException;
@@ -15,7 +16,8 @@ import java.sql.SQLException;
  */
 public class Sv_ModificarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    HttpSession sesion;  
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -30,24 +32,37 @@ public class Sv_ModificarUsuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		PrintWriter out = response.getWriter();
+		sesion = request.getSession();
 		
-		int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
-		System.out.println(id_usuario);
+		int idSesion = (int) request.getAttribute("id_usuario");
 		
+		if (idSesion != 0) {
 		
-		Usuario u = new Usuario();
-		
-		try {
-			u.obtenerUsuarioPorId(id_usuario);
+			PrintWriter out = response.getWriter();
 			
-			out.print(u.devuelveJson());
-			//System.out.println(u.toString());
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
+			System.out.println(id_usuario);
+			
+			
+			Usuario u = new Usuario();
+			
+			try {
+				u.obtenerUsuarioPorId(id_usuario);
+				
+				out.print(u.devuelveJson());
+				//System.out.println(u.toString());
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
+		
+		}else {
+			
+			System.out.println("No puedes acceder.");
+			response.sendRedirect("login.html");
+			
+		}
 		
 	}
 

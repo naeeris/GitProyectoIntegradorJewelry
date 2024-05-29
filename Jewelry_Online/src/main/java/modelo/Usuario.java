@@ -131,12 +131,42 @@ public class Usuario {
 		
 		DaoUsuarios.getInstance().actualizarUsuario(this);
 	}
-	
+	/**
+	 * 
+	 * @param id_usuario
+	 * @throws SQLException
+	 */
 	public void eliminarUsuario(int id_usuario) throws SQLException {
 		
 		DaoUsuarios.getInstance().eliminarUsuario(id_usuario);
 		
 		
+	}
+	
+	
+	public boolean logeoUsuario(String contrasenya) throws SQLException {
+		
+		boolean ok = false;
+		
+		Usuario aux = DaoUsuarios.getInstance().logeandoUsuario(this, contrasenya);
+		
+		if (aux != null) {
+			
+			ok = true;
+			
+			this.setId_usuario(aux.getId_usuario());
+			this.setPermiso_usuario(aux.getPermiso_usuario());
+			this.setNombre(aux.getNombre());
+			this.setApellidos(aux.getApellidos());
+			this.setDomicilio(aux.getDomicilio());
+			this.setCod_postal(aux.getCod_postal());
+			this.setPais(aux.getPais());
+			this.setEmail(aux.getEmail());
+			this.setTelefono(aux.getTelefono());
+			this.setContrasenya(aux.getContrasenya());
+		}
+		
+		return ok;
 	}
 	
 	
