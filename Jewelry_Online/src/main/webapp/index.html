@@ -1,112 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jewelry</title>
-
-    <link rel="stylesheet" href="/webapp/index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
 </head>
-
 <body>
-
-    <div id="container">
+    <div class="container">
         <header>
-            <div id="heading">
-                <h1 id="titulo">Jewelry</h1>
-
-                
-                <div id="logousuario">
-                    <a href="altaUsuario.html">Usuario</a>
-                   	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icono-cesta">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                      </svg>
-                      
+            <div class="heading">
+                <h2>JEWELRY</h2>
+                <div class="iconos">
+                    <a href="#"><img src="imagenesweb/genericas/lupa.png" alt="Buscar" class="icono-img"></a>
+                    <a href="altaUsuario.html" class="icono-login"><img src="imagenesweb/genericas/login.png" alt="Login" class="icono-img"></a>
+                    <a href="#" class="icono-cesta"><img src="imagenesweb/genericas/cesta.png" alt="Cesta" class="icono-img"></a>
                 </div>
-
-    
             </div>
-    
-    
-        </header>
-        <div id="menu">
+            <div id="barra-buscar" class="barra-buscar hidden">
+                <input type="text" placeholder="Buscar...">
+            </div>
             <nav>
-                <ul type="none">
+                <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#">Anillos</a></li>
-                    <li><a href="#">Pendientes</a></li>
-                    <li><a href="#">Collares</a></li>
-                    <li><a href="#">Pulseras</a></li>
-    
+                    <li><a href="#anillos">Anillos</a></li>
+                    <li><a href="#pendientes">Pendientes</a></li>
+                    <li><a href="#collares">Collares</a></li>
+                    <li><a href="#pulseras">Pulseras</a></li>
                 </ul>
-    
             </nav>
+        </header>
+
+        <main>
+            <div class="links-imagen">
+                <a href="#anillos" class="imagen-container">
+                    <img src="imagenesweb/genericas/manosconvariosanillos.jpg" alt="Anillos">
+                    <div class="overlay">Anillos</div>
+                </a>
+                <a href="#pendientes" class="imagen-container">
+                    <img src="imagenesweb/genericas/pendientesvarios.jpg" alt="Pendientes">
+                    <div class="overlay">Pendientes</div>
+                </a>
+                <a href="#collares" class="imagen-container">
+                    <img src="imagenesweb/genericas/collaresvarios.jpg" alt="Collares">
+                    <div class="overlay">Collares</div>
+                </a>
+                <a href="#pulseras" class="imagen-container">
+                    <img src="imagenesweb/genericas/pulserasvarias.jpg" alt="Pulseras">
+                    <div class="overlay">Pulseras</div>
+                </a>
+            </div>
+        </main>
+
+        <div id="footer">
+            <footer>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </footer>
         </div>
-        
-        <div class="container-productos">
-            <div class="productos">
-                <figure>
-                    <img id="imagenambiente" src="imagenesweb/genericas/manosconvariosanillos.jpg" alt="producto">
-                </figure>
-                <div class="info-producto">
-                    <h2>Anillo Flor</h2>
-                    <p class="precio">20€</p>
-                    <button>Añadir a la cesta</button>
-                </div>
-            </div>
-            <div class="productos">
-                <figure>
-                    <img id="imagenambiente" src="imagenesweb/genericas/pendientes.jpg" alt="producto">
-                </figure>
-                <div class="info-producto">
-                    <h2>Anillo Flor</h2>
-                    <p class="precio">20€</p>
-                    <button>Añadir a la cesta</button>
-                </div>
-            </div>
-            <div class="productos">
-                <figure>
-                    <img id="imagenambiente" src="imagenesweb/genericas/varioscollares.jpg" alt="producto">
-                </figure>
-                <div class="info-producto">
-                    <h2>Anillo Flor</h2>
-                    <p class="precio">20€</p>
-                    <button>Añadir a la cesta</button>
-                </div>
-            </div>
-            <div class="productos">
-                <figure>
-                    <img id="imagenambiente" src="imagenesweb/genericas/variaspulseras.jpg" alt="producto">
-                </figure>
-                <div class="info-producto">
-                    <h2>Anillo Flor</h2>
-                    <p class="precio">20€</p>
-                    <button>Añadir a la cesta</button>
-                </div>
-            </div>
-
-
-        </div>
-
-        
-    
     </div>
-
-    <div id="footer">
-        <footer>
-			
-			<ul>
-            	<li><a href="index.html">Inicio</a> </li>
-          	  	<li><a href="#">Productos</a> </li>
-            	<li><a href="#">Blog</a> </li>
-            	<li><a href="#">Contacto</a> </li>
-            	<li><a href="#">Aviso Legal</a> </li>
-            	<li><a href="#">Cookies</a> </li>
-        	</ul>
-			
-		</footer>
-    </div>
-    
-    
 </body>
 </html>
