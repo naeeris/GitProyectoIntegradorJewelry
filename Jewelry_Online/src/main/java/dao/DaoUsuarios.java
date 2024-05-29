@@ -22,7 +22,7 @@ public class DaoUsuarios {
 	
 	
 	/**
-	 * Este método es el que utilizo para aplicar el patrón Singleton
+	 * Este método es el que utilizo para aplicar el patrón Singleton.
 	 * @return
 	 * @throws SQLException
 	 */
@@ -35,7 +35,6 @@ public class DaoUsuarios {
 	
 	}
 	
-	//Creo un método para insertar usuarios
 	/**
 	 * 	Método para insertar un usuario en la base de datos del objeto usuario.
 	 * @param registro_usuario Objeto tipo usuarios.
@@ -65,7 +64,7 @@ public class DaoUsuarios {
 	
 	/**
 	 * 	ArrayList para poder almacenar los datos que recogemos de la base de datos.
-	 * @return
+	 * @return Devuelve una matriz 'ArrayList' con todos los datos que tenemos insertados en la base de datos del objeto Usuario.
 	 * @throws SQLException
 	 */
 	public ArrayList<Usuario> listarUsuarios () throws SQLException {
@@ -91,10 +90,9 @@ public class DaoUsuarios {
 	}
 	
 	
-	//Necesito otro método para que me convierta los datos del ArrayList (o de la bbdd) en un formato Json
 	/**
-	 * Método que sirve para convertir los datos del ArrayList, obtenidos de la base de datos, en formato Gson.
-	 * @return Devuelve un string que incluye todos los datos que hemos sacado de la base de datos.
+	 * Método que sirve para convertir los datos del ArrayList, obtenidos de la base de datos, en formato Json.
+	 * @return Devuelve un String que incluye todos los datos que hemos sacado de la base de datos.
 	 * @throws SQLException
 	 */
 	public String listarJson() throws SQLException {
@@ -112,14 +110,14 @@ public class DaoUsuarios {
 		
 	}
 	/**
-	 * 
-	 * @param id_usuario
-	 * @return
+	 * Método que sirve para extraer datos de la base de datos teniendo en cuenta el id_usuario.
+	 * @param id_usuario Atributo único que identifica al objeto Usuario.
+	 * @return Devuelve el objeto Usuario con todos sus datos. 
 	 * @throws SQLException
 	 */
-	public Usuario obtenerUsuario(int id_usuario) throws SQLException {
+	public Usuario obtenerUsuarioPorId(int id_usuario) throws SQLException {
 		
-		String sql = ("SELECT * FROM usuarios WHERE id=?");
+		String sql = ("SELECT * FROM usuarios WHERE id_usuario=?");
 		
 		PreparedStatement ps = DBconexion.prepareStatement(sql);
 		ps.setInt(1, id_usuario);
@@ -132,5 +130,43 @@ public class DaoUsuarios {
 		return u;
 	}
 	
-
+	/**
+	 * Método para actualizar los datos en la base de datos teniendo en cuenta el id_usuario.
+	 * @param u 
+	 * @throws SQLException
+	 */
+	public void actualizarUsuario(Usuario u) throws SQLException {
+		
+		String sql = "UPDATE usuarios SET permiso_usuario=?, nombre=?, apellidos=?, domicilio=?,  cod_postal=?, pais=?, email=?, telefono=?, contrasenya=? WHERE id_usuario=?";
+		
+		PreparedStatement ps = DBconexion.prepareStatement(sql);
+		
+		ps.setInt(1, u.getPermiso_usuario());
+		ps.setString(2, u.getNombre());
+		ps.setString(3, u.getApellidos());
+		ps.setString(4, u.getDomicilio());
+		ps.setInt(5, u.getCod_postal());
+		ps.setString(6, u.getPais());
+		ps.setString(7, u.getEmail());
+		ps.setInt(8, u.getTelefono());
+		ps.setString(9, u.getContrasenya());
+		ps.setInt(10, u.getId_usuario());
+		
+		int filas = ps.executeUpdate();
+		ps.close();
+		
+	}
+	
+	public void eliminarUsuario(int id_usuario) throws SQLException {
+		
+		String sql = "DELETE FROM usuarios WHERE id_usuario=?";
+		
+		PreparedStatement ps = DBconexion.prepareStatement(sql);
+		ps.setInt(1, id_usuario);
+		
+		int filas = ps.executeUpdate();
+		ps.close();
+		
+		
+	}
 }

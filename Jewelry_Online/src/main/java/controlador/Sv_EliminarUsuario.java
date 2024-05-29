@@ -10,20 +10,19 @@ import modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import dao.DaoUsuarios;
 
 /**
- * Servlet implementation class Sv_ListarUsuarios
+ * Servlet implementation class Sv_EliminarUsuario
  */
-public class Sv_ListarUsuarios extends HttpServlet {
+public class Sv_EliminarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sv_ListarUsuarios() {
+    public Sv_EliminarUsuario() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,21 +33,25 @@ public class Sv_ListarUsuarios extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		PrintWriter out = response.getWriter();
 		
-		String respuestaJson;
+		int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
+		System.out.println(id_usuario);
+		
+		Usuario u = new Usuario();
+		
 		try {
-			respuestaJson = DaoUsuarios.getInstance().listarJson();
-			//System.out.println("El listado ha llegado al servlet.");
+			u.eliminarUsuario(id_usuario);
 			
-			PrintWriter out = response.getWriter();
-			
-			out.print(respuestaJson);
+			out.print(u.devuelveJson());
+			System.out.println("Estoy borrando "+id_usuario);		
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		response.sendRedirect("listaUsuarios.html");
 		
 	}
 
@@ -58,8 +61,8 @@ public class Sv_ListarUsuarios extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
-		
 	}
+	
+	
 
 }

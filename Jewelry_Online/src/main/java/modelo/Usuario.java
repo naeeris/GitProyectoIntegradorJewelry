@@ -78,32 +78,26 @@ public class Usuario {
 		this.contrasenya = contrasenya;
 	}
 	
-	//Creo un método para que me llame a la inserción de datos del DAO
+	
 	/**
-	 * Método para llamar a la inserción de datos de DaoUsuarios.
+	 * Método para llamar a la inserción de datos de DaoUsuarios aplicando el patrón Singleton.
 	 * @throws SQLException
 	 */
 	public void insertarUsuario () throws SQLException {
-		/*
-		//Esto se utiliza en lugar de utilizar el patrón Singelton, pero no sería lo correcto pero es funcional
-		 DaoUsuarios dao = new DaoUsuarios();
-		 dao.insertarUsuario(this);
-		 */
-		
-		
-		//Aplicamos el patrón Singleton
+	
 		DaoUsuarios.getInstance().insertarUsuario(this);
 		
 	}
 	
+	
 	/**
-	 * Método para modificar los datos de usuario.
+	 * Método para obtener los datos de usuario de la base de datos teniendo en cuenta su id_usuario.
 	 * @param id_usuario
 	 * @throws SQLException
 	 */
-	public void modificarUsuario (int id_usuario) throws SQLException {
+	public void obtenerUsuarioPorId (int id_usuario) throws SQLException {
 		
-		Usuario aux = DaoUsuarios.getInstance().obtenerUsuario(id_usuario);
+		Usuario aux = DaoUsuarios.getInstance().obtenerUsuarioPorId(id_usuario);
 		
 		this.setId_usuario(aux.getId_usuario());
 		this.setPermiso_usuario(aux.getPermiso_usuario());
@@ -127,6 +121,22 @@ public class Usuario {
 		txtJson = gson.toJson(this);
 		
 		return txtJson;
+	}
+	
+	/**
+	 * Método para llamar a la modificación de datos de DaoUsuarios aplicando el patrón Singleton.
+	 * @throws SQLException
+	 */
+	public void actualizarUsuario() throws SQLException {
+		
+		DaoUsuarios.getInstance().actualizarUsuario(this);
+	}
+	
+	public void eliminarUsuario(int id_usuario) throws SQLException {
+		
+		DaoUsuarios.getInstance().eliminarUsuario(id_usuario);
+		
+		
 	}
 	
 	

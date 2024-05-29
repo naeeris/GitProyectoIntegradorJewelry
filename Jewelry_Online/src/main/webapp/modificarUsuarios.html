@@ -12,73 +12,57 @@
 
 <body>
 
-	<section>
-		<h1>Listado de usuarios a modificar</h1>
-    
-    	<div id="listado_usuarios">
-
-			
-
-   		</div>
+	<div class="container">
 		
-	</section>
-    
-    
-	<div>
-		
-		<!--Estoy trabajando aquí--> 
-	   <!-- Formulario para modificar el usuario-->
-	   <section>
-	       <h1>Únete al mundo Jewelry</h1>
-	       <h4>Regístrate y haz tu pedido</h4>
-	       <form name="AltaUsuario" action="Sv_ModificarUsuarios" method="post">
-	            <ul type="none">
-					<input type="hidden" id="id" name="id"> <!--Esto es para poder modificar teniendo en cuenta el Id pero lo pongo oculto para que no aparezca-->
-	                <li><label>Nombre: </label><input id="nombre" type="text" name="nombre"></li>
-	                <li><label>Apellidos: </label><input id="apellidos" type="text" name="apellidos"></li>
-	                <li><label>Domicilio: </label><input id="domicilio" type="text" name="domicilio"></li>
-	                <li><label>Código postal: </label><input id="cod_postal" type="number" name="cod_postal" maxlength="5"></li>
-	                <li><label>País: </label><input id="pais" type="text" name="pais"></li>
-	                <h3>Datos de contacto:</h3> 
-	                <li><label>E-mail: </label><input id="email" type="email" name="email"></li>
-	                <li><label>Teléfono: </label><input id="telefono" type="number" name="telefono" maxlength="9"></li>
-	
-	                <li><label>Contraseña: </label><input id="contrasenya" type="text" name="contrasenya"></li>
-	
-	                <!--PENDIENTE - Todos los datos de un formulario deben de ser validados con JS antes de ser enviados-->
-	                <li><input type="submit" value="Crea tu cuenta"></li>
-	                <li><input type="button" onclick="validarFormulario()" value="Enviar"></li> <!--Pasa el onclick a Js con el addeventlistener-->
-	                
-	
+	    <header>
+	        <div class="heading">
+	            <h2>JEWELRY</h2>
+	            <div class="iconos">
+	                <a href="#"><img src="imagenesweb/genericas/lupa.png" alt="Buscar" class="icono-img"></a>
+	                <a href="altaUsuario.html" class="icono-login"><img src="imagenesweb/genericas/login.png" alt="Login" class="icono-img"></a>
+	                <a href="#" class="icono-cesta"><img src="imagenesweb/genericas/cesta.png" alt="Cesta" class="icono-img"></a>
+	            </div>
+	        </div>
+	        <div id="barra-buscar" class="barra-buscar hidden">
+	            <input type="text" placeholder="Buscar...">
+	        </div>
+	        <nav>
+	            <ul>
+	                <li><a href="index.html">Inicio</a></li>
+	                <li><a href="#anillos">Anillos</a></li>
+	                <li><a href="#pendientes">Pendientes</a></li>
+	                <li><a href="#collares">Collares</a></li>
+	                <li><a href="#pulseras">Pulseras</a></li>
 	            </ul>
-	
-	       </form>
-	
-	
-	   </section>
+	        </nav>
+   		</header>
 		
-		
-		<footer>
-			
-			<ul>
-            	<li><a href="index.html">Inicio</a> </li>
-          	  	<li><a href="#">Productos</a> </li>
-            	<li><a href="#">Blog</a> </li>
-            	<li><a href="#">Contacto</a> </li>
-            	<li><a href="#">Aviso Legal</a> </li>
-            	<li><a href="#">Cookies</a> </li>
-        	</ul>
-			
-		</footer>
+		<section >
+			<div class="listado">
+				<h2>Listado de usuarios a modificar</h2>
+    
+    			<div id="listado_usuarios_modificar"></div>
+				
+			</div>
+
+		</section>
+	
+        <div id="footer">
+            <footer>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </footer>
+        </div>
 		
 		
 	</div>
   
-
-
-    
-    
-
 </body>
 
 </html>

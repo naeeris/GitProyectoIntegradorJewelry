@@ -1,7 +1,6 @@
 package controlador;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,15 +11,15 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 /**
- * Servlet implementation class Sv_GestionUsuarios
+ * Servlet implementation class Sv_ModificarUsuario
  */
-public class Sv_GestionUsuarios extends HttpServlet {
+public class Sv_ModificarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sv_GestionUsuarios() {
+    public Sv_ModificarUsuario() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +29,24 @@ public class Sv_GestionUsuarios extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		PrintWriter out = response.getWriter();
 		
+		int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
+		System.out.println(id_usuario);
+		
+		
+		Usuario u = new Usuario();
+		
+		try {
+			u.obtenerUsuarioPorId(id_usuario);
+			
+			out.print(u.devuelveJson());
+			//System.out.println(u.toString());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 	}
@@ -67,9 +83,7 @@ public class Sv_GestionUsuarios extends HttpServlet {
 			System.out.println("Error al actualizar.");
 		}
 		
-		response.sendRedirect("listaUsuarios.html");
-		
-		
+		response.sendRedirect("modificarUsuarios.html");
 		
 		
 	}
