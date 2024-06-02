@@ -1,20 +1,15 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de usuarios</title>
-
-	<link rel="stylesheet" href="css/modificaUsuarios.css">
- 	<script src="js/modificaUsuarios.js"></script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Administrator</title>
+    <link rel="stylesheet" href="css/gestionUsuarios.css">
+    <script src="js/indexadmin.js"></script>
 </head>
-
 <body>
-
-	<div class="container">
-		
-	    <header>
+    <div class="container">
+        <header>
             <div class="heading">
                 <h2>JEWELRY</h2>
                 <div class="iconos">
@@ -29,24 +24,35 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="indexadmin.html">Inicio</a></li>
                     <li><a href="gestionUsuarios.html"> Gestión Usuarios</a></li>
-                    <li><a href="#productos">Gestión Productos</a></li>
+                    <li><a href="gestionProductos.html">Gestión Productos</a></li>
                     
                 </ul>
             </nav>
         </header>
-		
-		<section >
-			<div class="listado">
-				<h2>Listado de usuarios a modificar</h2>
-    
-    			<div class="listado_usuarios" id="listado_usuarios_modificar"></div>
-				
-			</div>
 
-		</section>
-	
+        <main>
+            <div class="links-imagen">
+                <a href="altaUsuarioAdmin.html" class="imagen-container">
+                    <img src="imagenesweb/genericas/anadir.png" alt="Añadir Producto">
+                    <div class="overlay">Añadir Producto</div>
+                </a>
+                <a href="listaUsuarios.html" class="imagen-container">
+                    <img src="imagenesweb/genericas/cheque.png" alt="Listado Prodcutos">
+                    <div class="overlay">Listado Productos</div>
+                </a>
+                <a href="modificarUsuarios.html" class="imagen-container">
+                    <img src="imagenesweb/genericas/editar.png" alt="Modificar Producto">
+                    <div class="overlay">Modificar Producto</div>
+                </a>
+                <a href="eliminarUsuarios.html" class="imagen-container">
+                    <img src="imagenesweb/genericas/marca-x.png" alt="Eliminar Producto">
+                    <div class="overlay">Eliminar Producto</div>
+                </a>
+            </div>
+        </main>
+
         <div id="footer">
             <footer>
                 <ul>
@@ -59,10 +65,6 @@
                 </ul>
             </footer>
         </div>
-		
-		
-	</div>
-  
+    </div>
 </body>
-
 </html>

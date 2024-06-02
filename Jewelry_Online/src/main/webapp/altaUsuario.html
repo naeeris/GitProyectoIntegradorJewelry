@@ -6,6 +6,7 @@
     <title>Registro Usuario</title>
 
     <link rel="stylesheet" href="css/altaUsuario.css">
+    <script src="js/altaUsuario.js"></script>
     
 </head>
 <body>
@@ -35,8 +36,7 @@
 	        </nav>
    		 </header>
 		
-		<!--Estoy trabajando aquí--> 
-	    <!-- Formulario para darse de alta como usuario-->
+	
 	   <section>
 	        <div class="cajaInformacion">
 			   
@@ -46,25 +46,48 @@
 	       <div class="cajaFormulario">
 				<h2>Únete al mundo Jewelry</h2>
 		       	<h4>Regístrate y haz tu pedido</h4>
-		       	<form name="AltaUsuario" action="Sv_AltaUsuarios" method="post">
-		            <ul type="none">
-		                <li><label>Nombre </label><input id="nombre" type="text" name="nombre" required></li>
-		                <li><label>Apellidos </label><input id="apellidos" type="text" name="apellidos" required></li>
-		                <li><label>Domicilio </label><input id="domicilio" type="text" name="domicilio" required></li>
-		                <li><label>Código postal </label><input id="cod_postal" type="number" name="cod_postal" maxlength="5" required></li>
-		                <li><label>País </label><input id="pais" type="text" name="pais" required></li>
-		                <li><label>Email </label><input id="email" type="email" name="email" required></li>
-		                <li><label>Teléfono </label><input id="telefono" type="number" name="telefono" maxlength="9" required></li>
-		                <li><label>Contraseña </label><input id="contrasenya" type="password" name="contrasenya" required></li>
-		
-		                <!--PENDIENTE - Todos los datos de un formulario deben de ser validados con JS antes de ser enviados-->
-		                <li><input type="submit" value="Crea tu cuenta"></li>
-		                
-		                
-		
-		            </ul>
-		       </form>
-		   
+ 		 <form name="AltaUsuario" action="Sv_AltaUsuarios" method="post" onsubmit="return validarFormulario()">
+        <div class="contenedorLogin">
+            <ul class="form-list">
+                <li>
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" type="text" name="nombre" required>
+                </li>
+                <li>
+                    <label for="apellidos">Apellidos</label>
+                    <input id="apellidos" type="text" name="apellidos" required>
+                </li>
+                <li>
+                    <label for="domicilio">Domicilio</label>
+                    <input id="domicilio" type="text" name="domicilio" required>
+                </li>
+                <li>
+                    <label for="cod_postal">Código postal</label>
+                    <input id="cod_postal" type="number" name="cod_postal" maxlength="5" required>
+                </li>
+                <li>
+                    <label for="pais">País</label>
+                    <input id="pais" type="text" name="pais" required>
+                </li>
+                <li>
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" required>
+                </li>
+                <li>
+                    <label for="telefono">Teléfono</label>
+                    <input id="telefono" type="number" name="telefono" maxlength="9" required>
+                </li>
+                <li>
+                    <label for="contrasenya">Contraseña</label>
+                    <input id="contrasenya" type="password" name="contrasenya" required>
+                </li>
+            
+                <li>
+                    <input type="submit" value="Crea tu cuenta">
+                </li>
+            </ul>
+        </div>
+    </form>		   
 		   </div>
 		  
 			

@@ -1,45 +1,98 @@
 package modelo;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import com.google.gson.Gson;
 
 import dao.DaoUsuarios;
 
+/**
+ * <h2> Clase Usuario </h2>
+ * Se pueden crear y leer los datos de los usuarios 
+ * @author Noelia Cauqui
+ * @version V2.0
+ */
 public class Usuario {
 	
-	//Declaro las variables de la clase Usuario
-	private int id_usuario; //Esto no aparece en el form pero en la BBDD si, lo asigna la BBDD
+	//Declaramos las variables de la clase Usuario
+	
+	/**
+	 * Atributo id del usuario.
+	 */
+	private int id_usuario; 
+	/**
+	 * Atributo permiso del usuario
+	 * Existen dos permisos
+	 * 0 para usuario registrado y 1 para usuario administrador
+	 */
 	private int permiso_usuario;
+	
+	/**
+	 * Atributo nombre del usuario
+	 */
 	private String nombre;
+	
+	/**
+	 * Atributo apellidos del usuario
+	 */
 	private String apellidos;
+	
+	/**
+	 * Atributo domicilio del usuario
+	 */
 	private String domicilio;
+	
+	/**
+	 * Atributo codigo postal del usuario
+	 */
 	private int cod_postal;
+	
+	/**
+	 * Atributo pais del usuario
+	 */
 	private String pais;
+	
+	/**
+	 * Atributo email del usuario
+	 */
 	private String email;
+	
+	/**
+	 * Atributo telefono del usuario
+	 */
 	private int telefono;
-	private String contrasenya; //Esto en la vida real no es así
+	
+	/**
+	 * Atributo contrasenya del usuario
+	 * Este atributo en el caso de que no fuera un proyecto academico no debería estar
+	 */
+	private String contrasenya; 
 	
 	
 	/**
-	 * Constructor por defecto para generar un objeto vacío de tipo usuario.
+	 * Constructor por defecto para generar un objeto vacío de tipo usuario
 	 */
 	public Usuario() {
 		
 	}
 	
 	/**
-	 * Constructor con todos los atributos del objeto para poder extraer los datos de la base de datos.
-	 * @param id_usuario
-	 * @param permiso_usuario
-	 * @param nombre
-	 * @param apellidos
-	 * @param domicilio
-	 * @param cod_postal
-	 * @param pais
-	 * @param email
-	 * @param telefono
-	 * @param contrasenya
+	 * Constructor con todos los parámetros del objeto Usuario
+	 * Crea un objeto Usuario con los siguientes parametros 
+	 * Permite extraer y manipular los datos del usuario almacenados en la base de datos
+	 * @param id_usuario Identificador único del usuario
+	 * @param permiso_usuario Permiso del usuario
+	 * @param nombre Nombre del usuario
+	 * @param apellidos Apellidos del usuario
+	 * @param domicilio Domicilio del usuario
+	 * @param cod_postal Codigo postal del domicilio del usuario
+	 * @param pais Pais del usuario
+	 * @param email Correo electronico del usuario
+	 * @param telefono Numero de telefono del usuario
+	 * @param contrasenya Contrasenya del usuario
 	 */
 	public Usuario(int id_usuario, int permiso_usuario, String nombre, String apellidos, String domicilio, int cod_postal, String pais, String email, int telefono, String contrasenya) {
 		
@@ -56,15 +109,16 @@ public class Usuario {
 	}
 	
 	/**
-	 * Constructor sin id_usuario y permiso_usuario para generar el objeto desde un formulario de html.
-	 * @param nombre Atributo solo texto...
-	 * @param apellidos 
-	 * @param domicilio
-	 * @param cod_postal
-	 * @param pais
-	 * @param email
-	 * @param telefono
-	 * @param contrasenya
+	 * Constructor para crear un objeto usuario desde un formulario HTML
+	 * No incluye los parámetros id_usuario y permiso_usuario
+	 * @param nombre Nombre de usuario
+	 * @param apellidos Apellidos de usuario
+	 * @param domicilio Domicilio del usuario 
+	 * @param cod_postal Codigo postal del domicilio del usuario
+	 * @param pais Pais del usuario
+	 * @param email Correo electronico del usuario
+	 * @param telefono Numero de telefono del usuario
+	 * @param contrasenya Contrasenya del usuario
 	 */
 	public Usuario(String nombre, String apellidos, String domicilio, int cod_postal, String pais, String email, int telefono, String contrasenya) {
 		
@@ -143,7 +197,12 @@ public class Usuario {
 		
 	}
 	
-	
+	/**
+	 * 
+	 * @param contrasenya
+	 * @return
+	 * @throws SQLException
+	 */
 	public boolean logeoUsuario(String contrasenya) throws SQLException {
 		
 		boolean ok = false;
@@ -169,6 +228,21 @@ public class Usuario {
 		return ok;
 	}
 	
+	public static String myMD5(String contrasenya) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(contrasenya.getBytes());
+            BigInteger number = new BigInteger(1, messageDigest);
+            String hashtext = number.toString(16);
+
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
 	
 	
 	//GETTERS Y SETTERS
@@ -267,16 +341,6 @@ public class Usuario {
 				+ ", apellidos=" + apellidos + ", domicilio=" + domicilio + ", cod_postal=" + cod_postal + ", pais="
 				+ pais + ", email=" + email + ", telefono=" + telefono + ", contrasenya=" + contrasenya + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 

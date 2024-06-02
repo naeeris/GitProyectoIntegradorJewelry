@@ -2,51 +2,63 @@
 <html>
 
 <head>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <title>Listado de usuarios a eliminar</title>
 
-	<link rel="stylesheet" href="css/modificaUsuarios.css">
+	<link rel="stylesheet" href="css/eliminarUsuarios.css">
  	<script src="js/eliminarUsuarios.js"></script>
     
 </head>
 
 <body>
-
-	<section>
-		<h1>Listado de usuarios a modificar</h1>
-    
-    	<div id="listado_usuarios_modificar">
-
-			
-
-   		</div>
+	
+	<div class="container">
 		
-	</section>
+	    <header>
+            <div class="heading">
+                <h2>JEWELRY</h2>
+                <div class="iconos">
+                    <a href="#"><img src="imagenesweb/genericas/lupa.png" alt="Buscar" class="icono-img"></a>
+                    <a href="#"><img src="imagenesweb/genericas/me-gusta.png" alt="Lista de deseos" class="icono-img"></a>
+                    <a href="altaUsuario.html" class="icono-login"><img src="imagenesweb/genericas/login.png" alt="Login" class="icono-img"></a>
+                    <a href="#" class="icono-cesta"><img src="imagenesweb/genericas/cesta.png" alt="Cesta" class="icono-img"></a>
+                </div>
+            </div>
+            <div id="barra-buscar" class="barra-buscar hidden">
+                <input type="text" placeholder="Buscar...">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="gestionUsuarios.html"> Gestión Usuarios</a></li>
+                    <li><a href="#productos">Gestión Productos</a></li>
+                    
+                </ul>
+            </nav>
+        </header>
+		
+		<section >
+			<div class="listado">
+				<h2>Listado de usuarios a eliminar</h2>
     
-    
-	<div>
-		
-		
-		<footer>
-			
-			<ul>
-            	<li><a href="index.html">Inicio</a> </li>
-          	  	<li><a href="#">Productos</a> </li>
-            	<li><a href="#">Blog</a> </li>
-            	<li><a href="#">Contacto</a> </li>
-            	<li><a href="#">Aviso Legal</a> </li>
-            	<li><a href="#">Cookies</a> </li>
-        	</ul>
-			
-		</footer>
-		
-		
-	</div>
-  
+    			<div class="listado_usuarios" id="listado_usuarios_eliminar"></div>
+				
+			</div>
 
-
-    
-    
+		</section>
+		<div id="footer">
+            <footer>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </footer>
+    	</div>
+    </div>
 
 </body>
 

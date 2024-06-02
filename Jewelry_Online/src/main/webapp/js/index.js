@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function() {
 	
 	let searchIcon = document.getElementById('icono-buscar');
     let searchBar = document.getElementById('barra-buscar');
@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 	});
 	
+	
+	
 });
-  
+
 
  
