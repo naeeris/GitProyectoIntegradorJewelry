@@ -37,37 +37,21 @@ public class Sv_EliminarUsuario extends HttpServlet {
 		
 		sesion = request.getSession();
 		
-		int idSesion = (int) request.getAttribute("id_usuario");
+		int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
+		System.out.println(id_usuario);
 		
-		if (idSesion != 0) {
-		
-			PrintWriter out = response.getWriter();
-			
-			int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
-			System.out.println(id_usuario);
-			
-			Usuario u = new Usuario();
+		Usuario u = new Usuario();
 			
 			try {
 				u.eliminarUsuario(id_usuario);
 				
-				out.print(u.devuelveJson());
 				System.out.println("Estoy borrando "+id_usuario);		
-				
+				response.sendRedirect("eliminarUsuarios.html");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-			response.sendRedirect("listaUsuarios.html");
-		
-		}else {
-			
-			System.out.println("No puedes acceder.");
-			response.sendRedirect("login.html");
-			
-		}
-		
 	}
 
 	/**

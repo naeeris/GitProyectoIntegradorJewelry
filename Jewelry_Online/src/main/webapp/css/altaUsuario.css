@@ -151,6 +151,53 @@ section {
     cursor: pointer;
 }
 
+.contenedorLogin {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.form-list {
+    list-style-type: none;
+}
+
+.form-list li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-list label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-list input[type="text"],
+.form-list input[type="number"],
+.form-list input[type="email"],
+.form-list input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-list input[type="submit"] {
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-list input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
 .cajaInformacion {
 	flex: 1%;
     max-width: 50%;

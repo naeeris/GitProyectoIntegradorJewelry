@@ -21,9 +21,23 @@
 	
     function pintar(resultados){
 		
-		console.log(resultados); //Para comprobar si me saca los datos (DE MOMENTO NO ME LOS SACA)
+		console.log(resultados); //Para comprobar si me saca los datos
 		//Esto lo tengo que modificar y meter en el html para poder darle estilo desde el css
         let html = "<table >";
+        
+         // Añadir fila de encabezado
+	    html += "<tr>";
+	    html += "<th>ID</th>";
+	    html += "<th>Permiso</th>";
+	    html += "<th>Nombre</th>";
+	    html += "<th>Apellidos</th>";
+	    html += "<th>Domicilio</th>";
+	    html += "<th>Código postal</th>";
+	    html += "<th>Pais</th>";
+	    html += "<th>Email</th>";
+	    html += "<th>Telefono</th>";
+	    html += "<th>Editar</th>";
+	    html += "</tr>";
 
         for(let i=0; i<resultados.length; i++){
 
@@ -36,7 +50,7 @@
             html += "<td>"+resultados[i].pais+"</td>";
             html += "<td>"+resultados[i].email+"</td>";
             html += "<td>"+resultados[i].telefono+"</td>";
-            html += "<td><a href='editarUsuario.html?id_usuario="+resultados[i].id_usuario+"'>Editar</a><td><a href='javascript:eliminar("+resultados[i].id_usuario+")'>Eliminar</a></td></td>"
+            html += "<td><a href='editarUsuario.html?id_usuario="+resultados[i].id_usuario+"'>Editar</a></td>"
         
             html += "</tr>";
         }

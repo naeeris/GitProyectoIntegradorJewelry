@@ -14,6 +14,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
+import dao.DaoUsuarios;
+
 /**
  * Servlet implementation class Sv_Login
  */
@@ -41,15 +43,18 @@ public class Sv_Login extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
 		String email = request.getParameter("email");
-		String contrasenya = myMD5(request.getParameter("contrasenya"));
+		String contrasenya = request.getParameter("contrasenya");
+		
 		
 		Usuario u = new Usuario();
 		
 		u.setEmail(email);
+		u.setContrasenya(Usuario.myMD5(contrasenya));
 		
 		//proteccion
 		
@@ -60,37 +65,27 @@ public class Sv_Login extends HttpServlet {
 				
 				sesion.setAttribute("id_usuario", u.getId_usuario());
 				sesion.setAttribute("permiso_usuario", u.getPermiso_usuario());
+				sesion.setAttribute("nombre", u.getNombre());
 				
-				response.sendRedirect("index.html");
-			
+				int permiso_sesion = (int) sesion.getAttribute("permiso_usuario");
+				if(permiso_sesion == 1) {
+					response.sendRedirect("indexadmin.html");
+				}else {
+					response.sendRedirect("index.html");
+				}
+				
 			}else {
 				response.sendRedirect("login.html");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("Error de servlet");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
-	
-	public static String myMD5(String contrasenya) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] messageDigest = md.digest(contrasenya.getBytes());
-            BigInteger number = new BigInteger(1, messageDigest);
-            String hashtext = number.toString(16);
-
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
-            }
-            return hashtext;
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-    }
-	
 
 }

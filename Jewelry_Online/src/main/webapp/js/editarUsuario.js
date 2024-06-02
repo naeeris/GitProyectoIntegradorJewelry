@@ -23,7 +23,7 @@ function getParameterByName(name) {
 	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
- //Hacerlo con el addevent listener
+//Hacerlo con el addevent listener
 function validarFormulario(){
 		 
 		let permiso_usuario = document.getElementById('permiso_usuario').value;   

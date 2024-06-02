@@ -2,38 +2,6 @@
  * 
  */
 //HAGO LA LLAMADA DESDE JAVASCRIPT
-   
-	/* COMENTO ESTO PARA AÑADIR LA ABREVIATURA
-        
-        //Cuando se cargue la página quiero que me saque una función
-        function llamada(){
-
-           
-            let xhr = new XMLHttpRequest();  //Esto funciona en segundo plano, el cliente no se entera de que está haciendo cosas
-            let resultados;
-
-            //Este método controla el cambio de JSON
-            xhr.onreadystatechange = function(){ // Ejecuta cada estado de la conexión, la última es la 4
-                if (xhr.readyState === 4){ //Cuando llegues al estado 4, quiero que hagas lo siguiente:
-                    if (xhr.status === 200){ //el 200 significa que todo está bien (p.ej cuando te sale un error 404, si lo quisiera manejar puedes hacerlo desde este punto)
-                        try{
-                            resultados = JSON.parse(xhr.responseText);
-                        }catch(e){
-                            // TODO: handle exception
-                        }
-                        
-                    }
-                }
-            }
-            xhr.open("GET", "Sv_ListarUsuarios", false); //Este método sirve para indicar a dónde va a ir
-            xhr.setRequestHeader("Content-Type", "application/json"); //OPCIONAL pero está más fino
-            xhr.send(); //Este sirve para que se ponga en marcha
-            
-            pintar(resultados);
-
-        }
-	*/  
-	
 	function llamada(){
 		fetch('Sv_ListarUsuarios')
 		.then(response => response.json())
@@ -45,6 +13,18 @@
 		console.log(resultados); //Para comprobar si me saca los datos (DE MOMENTO NO ME LOS SACA)
 		//Esto lo tengo que modificar y meter en el html para poder darle estilo desde el css
         let html = "<table border=1>";
+        
+         // Añadir fila de encabezado
+	    html += "<tr>";
+	    html += "<th>Nombre</th>";
+	    html += "<th>Apellidos</th>";
+	    html += "<th>Domicilio</th>";
+	    html += "<th>Código postal</th>";
+	    html += "<th>Pais</th>";
+	    html += "<th>Email</th>";
+	    html += "<th>Telefono</th>";
+	    html += "</tr>";
+
 
         for(let i=0; i<resultados.length; i++){
 
