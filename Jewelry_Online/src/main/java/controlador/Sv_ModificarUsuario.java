@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class Sv_ModificarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    HttpSession sesion;  
+    
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -32,11 +32,7 @@ public class Sv_ModificarUsuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		sesion = request.getSession();
 		
-		int idSesion = (int) request.getAttribute("id_usuario");
-		
-		if (idSesion != 0) {
 		
 			PrintWriter out = response.getWriter();
 			
@@ -56,13 +52,6 @@ public class Sv_ModificarUsuario extends HttpServlet {
 				e.printStackTrace();
 			}
 		
-		
-		}else {
-			
-			System.out.println("No puedes acceder.");
-			response.sendRedirect("login.html");
-			
-		}
 		
 	}
 

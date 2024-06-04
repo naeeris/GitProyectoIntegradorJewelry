@@ -1,4 +1,4 @@
-@charset "UFT-8";
+@charset "UTF-8";
 * {
     margin: 0%;
     padding: 0%;
@@ -121,7 +121,7 @@ main {
     border-radius: 8px;
 }
 
-.imagen-container .overlay {
+.imagen-container .tipoproducto {
     position: absolute;
     top: 60%;
     left: 50%;

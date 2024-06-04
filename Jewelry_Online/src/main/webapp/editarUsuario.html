@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-    <meta charset="UFT-8">
+    <meta charset="UTF-8">
     <title>Listado de usuarios a modificar</title>
 
 	<link rel="stylesheet" href="css/editarUsuario.css">
@@ -18,8 +18,8 @@
             <div class="heading">
                 <h2>JEWELRY</h2>
                 <div class="iconos">
-                    <a href="#"><img src="imagenesweb/genericas/lupa.png" alt="Buscar" class="icono-img"></a>
-                    <a href="#"><img src="imagenesweb/genericas/me-gusta.png" alt="Lista de deseos" class="icono-img"></a>
+                    <a href="#" class="icono-buscar"><img src="imagenesweb/genericas/lupa.png" alt="Buscar" class="icono-img"></a>
+                    <a href="#" class="icono-lista"><img src="imagenesweb/genericas/me-gusta.png" alt="Lista de deseos" class="icono-img"></a>
                     <a href="altaUsuario.html" class="icono-login"><img src="imagenesweb/genericas/login.png" alt="Login" class="icono-img"></a>
                     <a href="#" class="icono-cesta"><img src="imagenesweb/genericas/cesta.png" alt="Cesta" class="icono-img"></a>
                 </div>
@@ -29,9 +29,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="indexadmin.html">Inicio</a></li>
                     <li><a href="gestionUsuarios.html"> Gestión Usuarios</a></li>
-                    <li><a href="#productos">Gestión Productos</a></li>
+                    <li><a href="gestionProductos.html">Gestión Productos</a></li>
                     
                 </ul>
             </nav>
@@ -56,9 +56,9 @@
 	               		<li><label>Código postal: </label><input id="cod_postal" type="number" name="cod_postal" maxlength="5"></li>
 	                	<li><label>País: </label><input id="pais" type="text" name="pais"></li>
 		                <li><label>E-mail: </label><input id="email" type="email" name="email"></li>
-	                <li><label>Teléfono: </label><input id="telefono" type="number" name="telefono" maxlength="9"></li>
+	                	<li><label>Teléfono: </label><input id="telefono" type="number" name="telefono" maxlength="9"></li>
 	
-	                <li><label>Contraseña: </label><input id="contrasenya" type="text" name="contrasenya"></li>
+	                	<li><label>Contraseña: </label><input id="contrasenya" type="text" name="contrasenya"></li>
 	
 	                <!--PENDIENTE - Todos los datos de un formulario deben de ser validados con JS antes de ser enviados - HECHO - PTE REVISAR-->
 	                <li><input type="submit" value="Modificar"></li> <!--Pasa el onclick a Js con el addeventlistener - HECHO / No se mete el submit porque hace de intermediario, el submit lo hace Js-->

@@ -120,7 +120,7 @@ main {
     border-radius: 8px;
 }
 
-.imagen-container .overlay {
+.imagen-container .tipoproducto {
     position: absolute;
     top: 45%;
     left: 50%;
