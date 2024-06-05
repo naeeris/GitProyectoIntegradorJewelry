@@ -20,13 +20,13 @@ public class Usuario {
 	//Declaramos las variables de la clase Usuario
 	
 	/**
-	 * Atributo id del usuario.
+	 * Atributo id del usuario
 	 */
 	private int id_usuario; 
 	/**
 	 * Atributo permiso del usuario
 	 * Existen dos permisos
-	 * 0 para usuario registrado y 1 para usuario administrador
+	 * 9 para usuario registrado y 1 para usuario administrador
 	 */
 	private int permiso_usuario;
 	
@@ -145,8 +145,8 @@ public class Usuario {
 	
 	
 	/**
-	 * Método para obtener los datos de usuario de la base de datos teniendo en cuenta su id_usuario.
-	 * @param id_usuario
+	 * Método para llamar a la obtención de los datos de usuario de DaoUsuarios teniendo en cuenta su id_usuario y siguiendo el patrón Singleton.
+	 * @param id_usuario Identificador único del usuarioS
 	 * @throws SQLException
 	 */
 	public void obtenerUsuarioPorId (int id_usuario) throws SQLException {
@@ -166,6 +166,10 @@ public class Usuario {
 		
 	}
 	
+	/**
+	 * Método para convertir el objeto gson en una cadena de texto JSON.
+	 * @return Retorna una cadena de texto JSON que representa el objeto actual.
+	 */
 	public String devuelveJson() {
 		
 		String txtJson = "";
@@ -185,8 +189,9 @@ public class Usuario {
 		
 		DaoUsuarios.getInstance().actualizarUsuario(this);
 	}
+	
 	/**
-	 * 
+	 * Método para llamar a la eliminación de datos de DaoUsuarios aplicando el patrón Singleton.
 	 * @param id_usuario
 	 * @throws SQLException
 	 */
@@ -198,10 +203,11 @@ public class Usuario {
 	}
 	
 	/**
-	 * 
-	 * @param contrasenya
-	 * @return
-	 * @throws SQLException
+	 * Autentica al usuario utilizando la contraseña proporcionada.
+	 * Si la autenticación es exitosa, actualiza el objeto actual con los datos del usuario.
+	 * @param contrasenya La contraseña del usuario para la autenticación.
+	 * @return Retorna true si la autenticación es exitosa, false en caso contrario.
+	 * @throws SQLException 
 	 */
 	public boolean logeoUsuario(String contrasenya) throws SQLException {
 		
@@ -228,6 +234,11 @@ public class Usuario {
 		return ok;
 	}
 	
+	/**
+	 * Método para cifrar la contraseña.
+	 * @param contrasenya La contraseña a cifrar.
+	 * @return La contraseña cifrada en formato hexadecimal.
+	 */
 	public static String myMD5(String contrasenya) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -248,7 +259,7 @@ public class Usuario {
 	//GETTERS Y SETTERS
 	
 	/**
-	 * Método de inclusión del id_usuario en el objeto.
+	 * Metodo de inclusion del id_usuario en el objeto.
 	 * @return Retorna el id_usuario en tipo entero.
 	 */
 	public int getId_usuario() {
@@ -256,81 +267,153 @@ public class Usuario {
 	}
 
 	/**
-	 * 
-	 * @param id_usuario
+	 * Metodo para establecer el id_usuario.
+	 * @param id_usuario Identificador único del usuario.
 	 */
 	public void setId_usuario(int id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 
+	/**
+	 * Metodo de inclusion del permiso_usuario en el objeto.
+	 * @return Retorna el permiso_usuario en tipo entero.
+	 */
 	public int getPermiso_usuario() {
 		return permiso_usuario;
 	}
-
+	
+	/**
+	 * Metodo para establecer el permiso_usuario.
+	 * @param permiso_usuario Permiso del usuario.
+	 */
 	public void setPermiso_usuario(int permiso_usuario) {
 		this.permiso_usuario = permiso_usuario;
 	}
 
+	/**
+	 * Metodo de inclusion del nombre en el objeto.
+	 * @return Retorna el nombre en tipo String.
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+	 * Metodo para establecer el nombre del usuario.
+	 * @param nombre Nombre del usuario.
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
+	
+	/**
+	 * Metodo de inclusion de los apellidos en el objeto.
+	 * @return Retorna los apellidos en tipo String.
+	 */
 	public String getApellidos() {
 		return apellidos;
 	}
 
+	/**
+	 * Metodo para establecer los apellidos del usuario.
+	 * @param apellidos Apellidos del usuario.
+	 */
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
 
+	/**
+	 * Metodo de inclusion del domicilio en el objeto.
+	 * @return Retorna el domicilio en tipo String.
+	 */
 	public String getDomicilio() {
 		return domicilio;
 	}
 
+	/**
+	 * Metodo para establecer el domicilio del usuario.
+	 * @param domicilio Domicilio del usuario.
+	 */
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
 	}
 
+	/**
+	 * Metodo de inclusion del cod_postal en el objeto.
+	 * @return Retorna el cod_postal en tipo int.
+	 */
 	public int getCod_postal() {
 		return cod_postal;
 	}
-
+	
+	/**
+	 * Metodo para establecer el cod_postal del usuario.
+	 * @param cod_postal Codigo postal del usuario.
+	 */
 	public void setCod_postal(int cod_postal) {
 		this.cod_postal = cod_postal;
 	}
-
+	
+	/**
+	 * Metodo de inclusion del pais en el objeto.
+	 * @return Retorna el pais en tipo String.
+	 */
 	public String getPais() {
 		return pais;
 	}
 
+	/**
+	 * Metodo para establecer el pais del usuario.
+	 * @param pais Pais del usuario.
+	 */
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
 
+	/**
+	 * Metodo de inclusion del email en el objeto.
+	 * @return Retorna el email en tipo String.
+	 */
 	public String getEmail() {
 		return email;
 	}
 
+	/**
+	 * Metodo para establecer el email del usuario.
+	 * @param email Email del usuario.
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	/**
+	 * Metodo de inclusion del telefono en el objeto.
+	 * @return Retorna el telefono en tipo int.
+	 */
 	public int getTelefono() {
 		return telefono;
 	}
 
+	/**
+	 * Metodo para establecer el telefono del usuario.
+	 * @param telefono Telefono del usuario.
+	 */
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
 
+	/**
+	 * Metodo de inclusion de la contraseña en el objeto.
+	 * @return Retorna la contraseña en tipo String.
+	 */
 	public String getContrasenya() {
 		return contrasenya;
 	}
 
+	/**
+	 * Metodo para establecer la contraseña del usuario.
+	 * @param contrasenya Contraseña del usuario.
+	 */
 	public void setContrasenya(String contrasenya) {
 		this.contrasenya = contrasenya;
 	}

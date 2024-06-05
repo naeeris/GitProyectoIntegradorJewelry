@@ -52,7 +52,7 @@ public class Sv_AltaUsuarios extends HttpServlet {
 		String pais = request.getParameter("pais");
 		String email = request.getParameter("email");
 		int telefono = Integer.parseInt(request.getParameter("telefono"));
-		String contrasenya = myMD5(request.getParameter("contrasenya"));
+		String contrasenya = Usuario.myMD5(request.getParameter("contrasenya"));
 		
 		System.out.println("El nombre del usuario es: " + nombre);
 		
@@ -72,29 +72,7 @@ public class Sv_AltaUsuarios extends HttpServlet {
 		
 		response.sendRedirect("index.html");
 		
-		/*
-			//Esto sirve para que nos salgan los datos insertados por el usuario en el explorador
-			PrintWriter respuesta = response.getWriter();
-			respuesta.print(registro_usuario.toString());
-		
-		*/
 		
 	}
-	
-	public static String myMD5(String contrasenya) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] messageDigest = md.digest(contrasenya.getBytes());
-            BigInteger number = new BigInteger(1, messageDigest);
-            String hashtext = number.toString(16);
-
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
-            }
-            return hashtext;
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 }

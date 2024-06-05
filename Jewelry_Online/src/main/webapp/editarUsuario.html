@@ -24,9 +24,6 @@
                     <a href="#" class="icono-cesta"><img src="imagenesweb/genericas/cesta.png" alt="Cesta" class="icono-img"></a>
                 </div>
             </div>
-            <div id="barra-buscar" class="barra-buscar hidden">
-                <input type="text" placeholder="Buscar...">
-            </div>
             <nav>
                 <ul>
                     <li><a href="indexadmin.html">Inicio</a></li>
@@ -46,28 +43,24 @@
 	       <div class="cajaFormulario">
 				<h2>Modificar Usuario</h2>
 		       	<h4>Modifica los campos que desees actualizar</h4>
-		       	<form id="EditarUsuario" name="ModificarUsuario" action="Sv_ModificarUsuario" method="post">
-		            <ul type="none">
-		                <input type="hidden" id="id_usuario" name="id_usuario"> <!--Esto es para poder modificar teniendo en cuenta el Id pero lo pongo oculto para que no aparezca-->
-	                	<li><label>Permiso: </label><input id="permiso_usuario" type="number" name="permiso_usuario"></li>
-	                	<li><label>Nombre: </label><input id="nombre" type="text" name="nombre"></li>
-	                	<li><label>Apellidos: </label><input id="apellidos" type="text" name="apellidos"></li>
-	               		<li><label>Domicilio: </label><input id="domicilio" type="text" name="domicilio"></li>
-	               		<li><label>Código postal: </label><input id="cod_postal" type="number" name="cod_postal" maxlength="5"></li>
-	                	<li><label>País: </label><input id="pais" type="text" name="pais"></li>
-		                <li><label>E-mail: </label><input id="email" type="email" name="email"></li>
-	                	<li><label>Teléfono: </label><input id="telefono" type="number" name="telefono" maxlength="9"></li>
-	
-	                	<li><label>Contraseña: </label><input id="contrasenya" type="text" name="contrasenya"></li>
-	
-	                <!--PENDIENTE - Todos los datos de un formulario deben de ser validados con JS antes de ser enviados - HECHO - PTE REVISAR-->
-	                <li><input type="submit" value="Modificar"></li> <!--Pasa el onclick a Js con el addeventlistener - HECHO / No se mete el submit porque hace de intermediario, el submit lo hace Js-->
-	                
-		                
-		                
-		
-		            </ul>
-		       </form>
+		       <form id="EditarUsuario" name="ModificarUsuario" action="Sv_ModificarUsuario" method="post">
+			        <div class="contenedorLogin">
+			            <ul class="form-list">
+							<input type="hidden" id="id_usuario" name="id_usuario"> <!--Esto es para poder modificar teniendo en cuenta el Id pero lo pongo oculto para que no aparezca-->
+							<li><label for="permiso_usuario">Permiso: </label><input id="permiso_usuario" type="number" name="permiso_usuario" required></li>
+			                <li><label for="nombre">Nombre</label><input id="nombre" type="text" name="nombre" required></li>
+			                <li><label for="apellidos">Apellidos</label><input id="apellidos" type="text" name="apellidos" required> </li>
+			                <li><label for="domicilio">Domicilio</label><input id="domicilio" type="text" name="domicilio" required></li>
+			                <li><label for="cod_postal">Código postal</label><input id="cod_postal" type="number" name="cod_postal" maxlength="5" required></li>
+			                <li><label for="pais">País</label><input id="pais" type="text" name="pais" required></li>
+			                <li><label for="email">E-mail</label><input id="email" type="email" name="email" required></li>
+			                <li><label for="telefono">Teléfono</label><input id="telefono" type="number" name="telefono" maxlength="9" required></li>
+			                <li><label for="contrasenya">Contraseña</label><input id="contrasenya" type="password" name="contrasenya" required></li>
+			            
+			                <li><input type="submit" value="Modificar"></li>
+			            </ul>
+			        </div>
+		    	</form>	
 		   
 		   </div>
 		  

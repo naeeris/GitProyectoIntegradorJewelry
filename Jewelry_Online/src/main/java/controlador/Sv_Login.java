@@ -65,7 +65,6 @@ public class Sv_Login extends HttpServlet {
 				
 				sesion.setAttribute("id_usuario", u.getId_usuario());
 				sesion.setAttribute("permiso_usuario", u.getPermiso_usuario());
-				sesion.setAttribute("nombre", u.getNombre());
 				
 				int permiso_sesion = (int) sesion.getAttribute("permiso_usuario");
 				if(permiso_sesion == 1) {
