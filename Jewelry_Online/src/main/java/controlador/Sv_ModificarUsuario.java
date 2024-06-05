@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class Sv_ModificarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    HttpSession sesion;  
+    
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -31,18 +31,11 @@ public class Sv_ModificarUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		sesion = request.getSession();
-		
-		int idSesion = (int) request.getAttribute("id_usuario");
-		
-		if (idSesion != 0) {
 		
 			PrintWriter out = response.getWriter();
 			
 			int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
 			System.out.println(id_usuario);
-			
 			
 			Usuario u = new Usuario();
 			
@@ -55,14 +48,6 @@ public class Sv_ModificarUsuario extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
-		
-		}else {
-			
-			System.out.println("No puedes acceder.");
-			response.sendRedirect("login.html");
-			
-		}
 		
 	}
 
@@ -86,12 +71,12 @@ public class Sv_ModificarUsuario extends HttpServlet {
 		
 		//Creo un objeto Usuario para poder actualizar todos los datos
 		
-		Usuario u = new Usuario(id_usuario, permiso_usuario, nombre, apellidos, domicilio, cod_postal, pais, email, telefono, contrasenya); //modificar registrousuario
+		Usuario u = new Usuario(id_usuario, permiso_usuario, nombre, apellidos, domicilio, cod_postal, pais, email, telefono, contrasenya); 
 		
 		System.out.println(u.toString());  //modificar registrousuario
 		
 		try {
-			u.actualizarUsuario(); //modificar registrousuario
+			u.actualizarUsuario(); 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

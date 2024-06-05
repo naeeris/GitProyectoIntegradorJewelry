@@ -34,6 +34,7 @@ function validarFormulario(){
 	    let pais = document.getElementById('pais').value;
 		let email = document.getElementById('email').value;
 	    let telefono = document.getElementById('telefono').value;
+	    let contrasenya = document.getElementById('contrasenya').value;
 
 		let ok = true;
 		if(permiso_usuario == ""){
@@ -76,6 +77,11 @@ function validarFormulario(){
 			document.getElementById('telefono').style.background = "red";
 		}
 		
+		if(contrasenya == ""){
+			ok = false;
+			document.getElementById('contrasenya').style.background = "red";
+		}
+		
 		
 		if(ok == true){
 			
@@ -101,9 +107,6 @@ function pintarFormulario(resultados){
 
 
 }
-
-
-
 
 
 window.addEventListener('DOMContentLoaded', function(){

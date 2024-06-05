@@ -12,19 +12,31 @@ import modelo.Usuario;
 
 public class DaoUsuarios {
 	
-	
+	/**
+	 * Variable para conexion a la base de datos.
+	 * Mantiene la conexion activa a la base de datos para realizar operaciones CRUD.
+	 */
 	private Connection DBconexion = null;
+	
+	/**
+	 * Instancia unica de la clase DaoUsuarios.
+	 * Utiliza el patron Singleton para asegurar que solo exista una instancia de DaoUsuarios.
+	 */
 	private static DaoUsuarios instance = null;
 	
+	/**
+	 * Constructor de la clase DaoUsuarios que inicializa la conexion a la base de datos utilizando la clase ConexionDB.
+	 * @throws SQLException 
+	 */
 	public DaoUsuarios() throws SQLException {
 		DBconexion = ConexionDB.getConnection();
 	}
 	
 	
 	/**
-	 * Este método es el que utilizo para aplicar el patrón Singleton.
-	 * @return
-	 * @throws SQLException
+	 * Metodo que implementa el patron Singleton para asegurar que solo exista una instancia de DaoUsuarios.
+	 * @return Retorna una instancia unica de DaoUsuarios.
+	 * @throws SQLException 
 	 */
 	public static DaoUsuarios getInstance() throws SQLException {
 		
@@ -36,7 +48,7 @@ public class DaoUsuarios {
 	}
 	
 	/**
-	 * 	Método para insertar un usuario en la base de datos del objeto usuario.
+	 * 	Metodo para insertar un usuario en la base de datos del objeto usuario.
 	 * @param registro_usuario Objeto tipo usuarios.
 	 * @throws SQLException
 	 */
@@ -55,7 +67,6 @@ public class DaoUsuarios {
 		ps.setInt(7, registro_usuario.getTelefono());
 		ps.setString(8, registro_usuario.getContrasenya());
 		
-		//Tenemos el executeUpdate para realizar el envío y el execute query cuando hacemos la devolución
 		int filas = ps.executeUpdate();
 		
 		ps.close();
@@ -64,7 +75,7 @@ public class DaoUsuarios {
 	
 	/**
 	 * 	ArrayList para poder almacenar los datos que recogemos de la base de datos.
-	 * @return Devuelve una matriz 'ArrayList' con todos los datos que tenemos insertados en la base de datos del objeto Usuario.
+	 * @return Devuelve una matriz ArrayList con todos los datos que tenemos insertados en la base de datos del objeto Usuario.
 	 * @throws SQLException
 	 */
 	public ArrayList<Usuario> listarUsuarios () throws SQLException {
@@ -91,7 +102,7 @@ public class DaoUsuarios {
 	
 	
 	/**
-	 * Método que sirve para convertir los datos del ArrayList, obtenidos de la base de datos, en formato Json.
+	 * Metodo que sirve para convertir los datos del ArrayList, obtenidos de la base de datos, en formato Json.
 	 * @return Devuelve un String que incluye todos los datos que hemos sacado de la base de datos.
 	 * @throws SQLException
 	 */
@@ -110,8 +121,8 @@ public class DaoUsuarios {
 		
 	}
 	/**
-	 * Método que sirve para extraer datos de la base de datos teniendo en cuenta el id_usuario.
-	 * @param id_usuario Atributo único que identifica al objeto Usuario.
+	 * Metodo que extrae los datos de la base de datos teniendo en cuenta el id_usuario.
+	 * @param id_usuario Atributo unico que identifica al objeto Usuario.
 	 * @return Devuelve el objeto Usuario con todos sus datos. 
 	 * @throws SQLException
 	 */
@@ -131,8 +142,8 @@ public class DaoUsuarios {
 	}
 	
 	/**
-	 * Método para actualizar los datos en la base de datos teniendo en cuenta el id_usuario.
-	 * @param u 
+	 * Metodo para actualizar los datos en la base de datos teniendo en cuenta el id_usuario.
+	 * @param u Obtejo tipo Usuario.
 	 * @throws SQLException
 	 */
 	public void actualizarUsuario(Usuario u) throws SQLException {
@@ -158,7 +169,7 @@ public class DaoUsuarios {
 	}
 	
 	/**
-	 * Método para eliminar un usuario de la base de datos teniendo en cuenta el id_usuario.
+	 * Metodo para eliminar un usuario de la base de datos teniendo en cuenta el id_usuario.
 	 * @param id_usuario 
 	 * @throws SQLException
 	 */
@@ -175,11 +186,12 @@ public class DaoUsuarios {
 	}
 	
 	/**
-	 * 
-	 * @param u
-	 * @param contrasenya
-	 * @return
-	 * @throws SQLException 
+	 * Metodo para autenticar a un usuario en el sistema utilizando su correo electronico y contraseña.
+	 * Realiza una consulta a la base de datos para verificar las credenciales del usuario.
+	 * @param u El objeto Usuario que contiene el correo electronico del usuario que intenta iniciar sesión.
+	 * @param contrasenya La contraseña proporcionada por el usuario para iniciar sesióo.
+	 * @return Un objeto Usuario con los datos del usuario autenticado si la autenticacion es exitosa, o null si las credenciales son incorrectas.
+	 * @throws SQLException Si ocurre un error al ejecutar la consulta SQL o al acceder a la base de datos.
 	 */
 	public Usuario logeandoUsuario(Usuario u, String contrasenya) throws SQLException {
 		
@@ -197,8 +209,5 @@ public class DaoUsuarios {
 		return aux;
 		
 	}
-	
-
-	
 	
 }

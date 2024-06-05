@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+	
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Usuario</title>
 
     <link rel="stylesheet" href="css/altaUsuario.css">
     <script src="js/altaUsuario.js"></script>
     
 </head>
+
 <body>
 
 	<div class="container">
@@ -17,13 +18,11 @@
 	        <div class="heading">
 	            <h2>JEWELRY</h2>
 	            <div class="iconos">
-	                <a href="#"><img src="imagenesweb/genericas/lupa.png" alt="Buscar" class="icono-img"></a>
+	                <a href="#" class="icono-buscar"><img src="imagenesweb/genericas/lupa.png" alt="Buscar" class="icono-img"></a>
+                    <a href="#" class="icono-lista"><img src="imagenesweb/genericas/me-gusta.png" alt="Lista de deseos" class="icono-img"></a>
 	                <a href="altaUsuario.html" class="icono-login"><img src="imagenesweb/genericas/login.png" alt="Login" class="icono-img"></a>
 	                <a href="#" class="icono-cesta"><img src="imagenesweb/genericas/cesta.png" alt="Cesta" class="icono-img"></a>
 	            </div>
-	        </div>
-	        <div id="barra-buscar" class="barra-buscar hidden">
-	            <input type="text" placeholder="Buscar...">
 	        </div>
 	        <nav>
 	            <ul>
@@ -46,56 +45,28 @@
 	       <div class="cajaFormulario">
 				<h2>Únete al mundo Jewelry</h2>
 		       	<h4>Regístrate y haz tu pedido</h4>
- 		 <form name="AltaUsuario" action="Sv_AltaUsuarios" method="post" onsubmit="return validarFormulario()">
-        <div class="contenedorLogin">
-            <ul class="form-list">
-                <li>
-                    <label for="nombre">Nombre</label>
-                    <input id="nombre" type="text" name="nombre" required>
-                </li>
-                <li>
-                    <label for="apellidos">Apellidos</label>
-                    <input id="apellidos" type="text" name="apellidos" required>
-                </li>
-                <li>
-                    <label for="domicilio">Domicilio</label>
-                    <input id="domicilio" type="text" name="domicilio" required>
-                </li>
-                <li>
-                    <label for="cod_postal">Código postal</label>
-                    <input id="cod_postal" type="number" name="cod_postal" maxlength="5" required>
-                </li>
-                <li>
-                    <label for="pais">País</label>
-                    <input id="pais" type="text" name="pais" required>
-                </li>
-                <li>
-                    <label for="email">Email</label>
-                    <input id="email" type="email" name="email" required>
-                </li>
-                <li>
-                    <label for="telefono">Teléfono</label>
-                    <input id="telefono" type="number" name="telefono" maxlength="9" required>
-                </li>
-                <li>
-                    <label for="contrasenya">Contraseña</label>
-                    <input id="contrasenya" type="password" name="contrasenya" required>
-                </li>
-            
-                <li>
-                    <input type="submit" value="Crea tu cuenta">
-                </li>
-            </ul>
-        </div>
-    </form>		   
-		   </div>
+		 		<form id="AltaUsuario" name="AltaUsuario" action="Sv_AltaUsuarios" method="post">
+			        <div class="contenedorLogin">
+			            <ul class="form-list">
+			                <li><label for="nombre">Nombre</label><input id="nombre" type="text" name="nombre" required></li>
+			                <li><label for="apellidos">Apellidos</label><input id="apellidos" type="text" name="apellidos" required> </li>
+			                <li><label for="domicilio">Domicilio</label><input id="domicilio" type="text" name="domicilio" required></li>
+			                <li><label for="cod_postal">Código postal</label><input id="cod_postal" type="number" name="cod_postal" maxlength="5" required></li>
+			                <li><label for="pais">País</label><input id="pais" type="text" name="pais" required></li>
+			                <li><label for="email">E-mail</label><input id="email" type="email" name="email" required></li>
+			                <li><label for="telefono">Teléfono</label><input id="telefono" type="number" name="telefono" maxlength="9" required></li>
+			                <li><label for="contrasenya">Contraseña</label><input id="contrasenya" type="password" name="contrasenya" required></li>
+			            
+			                <li><input type="submit" value="Crea tu cuenta"></li>
+			            </ul>
+			        </div>
+		    	</form>		   
+			</div>
 		  
 			
 	   </section>
 		
-		
-		
-        <div id="footer">
+       <div id="footer">
             <footer>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
@@ -106,13 +77,10 @@
                     <li><a href="#">Cookies</a></li>
                 </ul>
             </footer>
-        </div>
+       </div>
 		
 		
 	</div>
   
-
-
-    
 </body>
 </html>
